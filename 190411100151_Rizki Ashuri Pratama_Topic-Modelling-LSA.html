@@ -601,8 +601,8 @@ You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Progr
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (1.4.2)
 Requirement already satisfied: numpy&gt;=1.21.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (1.22.4)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (2.8.2)
 Requirement already satisfied: pytz&gt;=2020.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (2022.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (2.8.2)
 Requirement already satisfied: six&gt;=1.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas) (1.16.0)
 </pre></div>
 </div>
@@ -620,10 +620,10 @@ You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Progr
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (3.7)
-Requirement already satisfied: click in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (8.1.3)
-Requirement already satisfied: tqdm in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (4.64.0)
 Requirement already satisfied: regex&gt;=2021.8.3 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (2022.6.2)
+Requirement already satisfied: click in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (8.1.3)
 Requirement already satisfied: joblib in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (1.1.0)
+Requirement already satisfied: tqdm in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (4.64.0)
 Requirement already satisfied: colorama in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from click-&gt;nltk) (0.4.4)
 </pre></div>
 </div>
@@ -640,19 +640,16 @@ You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Progr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-Collecting scikit-learn
-  Downloading scikit_learn-1.1.1-cp310-cp310-win_amd64.whl (7.3 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (1.1.1)
 Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (1.22.4)
 Requirement already satisfied: joblib&gt;=1.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (1.1.0)
-Collecting scipy&gt;=1.3.2
-  Downloading scipy-1.8.1-cp310-cp310-win_amd64.whl (36.9 MB)
-Collecting threadpoolctl&gt;=2.0.0
-  Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
-Installing collected packages: threadpoolctl, scipy, scikit-learn
+Requirement already satisfied: scipy&gt;=1.3.2 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (1.8.1)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (3.1.0)
+Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 21.2.4; however, version 22.1.2 is available.
+You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip&#39; command.
 </pre></div>
 </div>
 </div>
@@ -1724,6 +1721,9 @@ TF-IDF untuk sebuah kata dalam dokumen dihitung dengan mengalikan dua metrik TF 
 t f(t, d)=\log (1+\text { freq }(t, d))
 \]</div>
 <br>
+<b>Keterangan:</b><br>
+t : Term<br>
+d : document<br>
 <ul class="simple">
 <li><p>IDF(Inverse Document Frequency): Ini berarti, seberapa umum atau jarang sebuah kata di seluruh kumpulan dokumen. Semakin dekat ke 0, semakin umum sebuah kata. Metrik ini dapat dihitung dengan mengambil jumlah total dokumen, membaginya dengan jumlah dokumen yang berisi kata, dan menghitung logaritma.</p></li>
 </ul>
@@ -1732,7 +1732,14 @@ t f(t, d)=\log (1+\text { freq }(t, d))
 i d f(t, D)=\log \left(\frac{N}{\operatorname{count}(d \in D: t \in d)}\right)
 \]</div>
 <br>
-Sehingga, untuk TF-IDF rumusnya adalah sebagai berikut :
+<p><b>Keterangan:</b><br>
+N : total dokumen</p>
+<div class="math notranslate nohighlight">
+\[
+(d \in D: t \in d) = \mathrm{df}_{t}
+\]</div>
+<p>dft : jumlah kemunculan term (tj) dalam dokumen<br></p>
+<p>Sehingga, untuk TF-IDF rumusnya adalah sebagai berikut :</p>
 <div class="math notranslate nohighlight">
 \[
 t f i d f(t, d, D)=t f(t, d), i d f(t, D)
@@ -1790,6 +1797,12 @@ t f i d f(t, d, D)=t f(t, d), i d f(t, D)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -4808,6 +4821,8 @@ Model LSA dapat menggunakan input dalam matriks dengan skor tf-idf.</p>
 \[
 \mathbf{A}_{n x p}=\mathbf{U}_{n x n} \mathrm{~S}_{n x p} \mathbf{V}_{p x p}^{\mathrm{T}}
 \]</div>
+<p>Matriks A yang digunakan disini merupakan Matriks TF-IDF
+<br></p>
 <p>Setiap baris dari matriks U (matriks topik dokumen) adalah representasi vektor dari dokumen yang sesuai atau kontribusi dari topik terhadap dokumen. Panjang vektor ini adalah jumlah topik yang diinginkan.<br>
 Representasi vektor untuk suku-suku dalam data dapat ditemukan dalam matriks V (matriks istilah(term)-topik) atau kontribusi term terhadap topik.<br></p>
 <p>SVD pada Python dapat dicari menggunakan Library dari numpy yaitu linalg.svd()</p>
@@ -5125,6 +5140,18 @@ A \cdot A^{T}
 <p>10 rows × 60 columns</p>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(60, 60)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="matriks-s">
 <h3>Matriks S<a class="headerlink" href="#matriks-s" title="Permalink to this headline">#</a></h3>
@@ -5146,7 +5173,7 @@ A \cdot A^{T}
 <span class="c1"># Membuat m x n Sigma matrix dari s</span>
 <span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">TFIDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">TFIDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="c1"># populate Sigma with n x n diagonal matrix</span>
-<span class="n">Sigma</span><span class="p">[:</span><span class="n">TFIDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:</span><span class="n">TFIDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Sigma</span><span class="p">[:</span><span class="n">TFIDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:</span><span class="n">TFIDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="n">Sigma</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Sigma</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5163,6 +5190,18 @@ A \cdot A^{T}
  0.86334562 0.85232194 0.84050186 0.83728286 0.8218829  0.81551714
  0.79413121 0.78146134 0.76908057 0.7534237  0.73736508 0.7186527
  0.69789007 0.65211768 0.62271445 0.60537839 0.54953436 0.54106801]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(60,)
 </pre></div>
 </div>
 </div>
@@ -7630,9 +7669,9 @@ A^{T} \cdot A
     <tr>
       <th>0</th>
       <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
@@ -7640,88 +7679,88 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>4</th>
@@ -7729,47 +7768,47 @@ A^{T} \cdot A
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
     </tr>
     <tr>
       <th>5</th>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
     </tr>
     <tr>
       <th>6</th>
@@ -7778,42 +7817,42 @@ A^{T} \cdot A
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>7</th>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
@@ -7823,34 +7862,34 @@ A^{T} \cdot A
       <th>8</th>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
@@ -7860,51 +7899,51 @@ A^{T} \cdot A
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
     </tr>
     <tr>
       <th>11</th>
+      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.054995</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
@@ -7913,94 +7952,94 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>12</th>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>13</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>14</th>
       <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.125106</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>15</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -8008,55 +8047,55 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>17</th>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -8072,7 +8111,7 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>0.062413</td>
       <td>...</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
@@ -8080,20 +8119,20 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>19</th>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.057504</td>
       <td>...</td>
       <td>0.000000</td>
@@ -8111,71 +8150,71 @@ A^{T} \cdot A
       <th>20</th>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>...</td>
       <td>0.394145</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>21</th>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>22</th>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
@@ -8185,15 +8224,15 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -8205,19 +8244,17 @@ A^{T} \cdot A
     </tr>
     <tr>
       <th>24</th>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
@@ -8225,198 +8262,200 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.054003</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>27</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.056138</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
     </tr>
     <tr>
       <th>28</th>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>29</th>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.065528</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.091936</td>
       <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>32</th>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.053983</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
     </tr>
     <tr>
@@ -8424,68 +8463,68 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>34</th>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.059019</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.148928</td>
       <td>0.148928</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>35</th>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.065022</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -8493,36 +8532,36 @@ A^{T} \cdot A
     </tr>
     <tr>
       <th>36</th>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>37</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
@@ -8531,7 +8570,7 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
@@ -8541,35 +8580,35 @@ A^{T} \cdot A
     </tr>
     <tr>
       <th>38</th>
+      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.085384</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.077547</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.075316</td>
       <td>0.059695</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
@@ -8577,63 +8616,63 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.075316</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.075316</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.075316</td>
       <td>0.075316</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>40</th>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.078309</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>42</th>
@@ -8641,36 +8680,36 @@ A^{T} \cdot A
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>43</th>
       <td>0.080687</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
@@ -8680,54 +8719,54 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.070967</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.212901</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>45</th>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
     </tr>
@@ -8735,41 +8774,41 @@ A^{T} \cdot A
       <th>46</th>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
@@ -8781,16 +8820,16 @@ A^{T} \cdot A
     </tr>
     <tr>
       <th>48</th>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>-0.000000</td>
@@ -8800,43 +8839,43 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>49</th>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>50</th>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
@@ -8844,8 +8883,8 @@ A^{T} \cdot A
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
@@ -8854,24 +8893,24 @@ A^{T} \cdot A
     <tr>
       <th>51</th>
       <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
     </tr>
@@ -8879,72 +8918,72 @@ A^{T} \cdot A
       <th>52</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>53</th>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>54</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -8952,88 +8991,88 @@ A^{T} \cdot A
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>56</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
     </tr>
     <tr>
       <th>57</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.063799</td>
-      <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.075672</td>
       <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>0.000000</td>
+      <td>-0.000000</td>
     </tr>
     <tr>
       <th>58</th>
-      <td>-0.000000</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
-      <td>0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>-0.000000</td>
       <td>-0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.108499</td>
       <td>-0.000000</td>
@@ -9046,26 +9085,26 @@ A^{T} \cdot A
     <tr>
       <th>59</th>
       <td>0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.056617</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
       <td>-0.000000</td>
+      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>-0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
       <td>-0.000000</td>
-      <td>-0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>-0.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
@@ -9297,724 +9336,724 @@ A^{T} \cdot A
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document :  0
-Topic  0  :  19.325915843288207
-Topic  1  :  -8.961443606959781
-Topic  2  :  -1.887000701439276
-Topic  3  :  15.278274354815014
-Topic  4  :  6.507538817486033
-Topic  5  :  -2.5005210331374252
-Topic  6  :  3.739951754501019
-Topic  7  :  9.262465506249134
-Topic  8  :  -2.336795434415829
-Topic  9  :  3.527601230127264
+Topic  0  :  19.3259158432882
+Topic  1  :  -8.961443606959834
+Topic  2  :  -1.8870007014393366
+Topic  3  :  15.278274354814858
+Topic  4  :  6.507538817487032
+Topic  5  :  -2.500521033136064
+Topic  6  :  3.7399517545011647
+Topic  7  :  9.26246550624913
+Topic  8  :  -2.3367954344153548
+Topic  9  :  3.5276012301274022
 
 Document :  1
-Topic  0  :  15.876489413041417
-Topic  1  :  -14.276484523934457
-Topic  2  :  8.042039999141098
-Topic  3  :  2.2323390824542035
-Topic  4  :  -1.3674831471304643
-Topic  5  :  -23.37832582987127
-Topic  6  :  67.52532739472097
-Topic  7  :  -8.02019393880752
-Topic  8  :  -33.296647774106425
-Topic  9  :  -9.54436671662591
+Topic  0  :  15.876489413041408
+Topic  1  :  -14.27648452393447
+Topic  2  :  8.042039999140881
+Topic  3  :  2.2323390824550264
+Topic  4  :  -1.367483147126388
+Topic  5  :  -23.378325829870363
+Topic  6  :  67.52532739472127
+Topic  7  :  -8.02019393880666
+Topic  8  :  -33.296647774106255
+Topic  9  :  -9.544366716627465
 
 Document :  2
-Topic  0  :  7.899344557108319
-Topic  1  :  -9.348241533932386
-Topic  2  :  4.087939562395141
-Topic  3  :  2.2974685033796343
-Topic  4  :  -0.8450845535320572
-Topic  5  :  -0.5329850847647404
-Topic  6  :  -0.45132519830041473
-Topic  7  :  11.05788889592593
-Topic  8  :  2.4134710855377177
-Topic  9  :  -1.9328470036087313
+Topic  0  :  7.899344557108315
+Topic  1  :  -9.348241533932384
+Topic  2  :  4.0879395623951496
+Topic  3  :  2.297468503379701
+Topic  4  :  -0.8450845535317844
+Topic  5  :  -0.5329850847647868
+Topic  6  :  -0.4513251983001395
+Topic  7  :  11.05788889592572
+Topic  8  :  2.413471085538095
+Topic  9  :  -1.9328470036084728
 
 Document :  3
-Topic  0  :  20.099612252226787
-Topic  1  :  -1.7369033700554113
-Topic  2  :  2.1686446870628653
-Topic  3  :  1.4548470915115155
-Topic  4  :  2.5279338357527052
-Topic  5  :  -5.43130637603027
-Topic  6  :  7.292815466548863
-Topic  7  :  1.9924952562321827
-Topic  8  :  6.745296951578384
-Topic  9  :  5.271451331240705
+Topic  0  :  20.09961225222679
+Topic  1  :  -1.7369033700554068
+Topic  2  :  2.1686446870628604
+Topic  3  :  1.4548470915115113
+Topic  4  :  2.5279338357536876
+Topic  5  :  -5.431306376029655
+Topic  6  :  7.292815466548941
+Topic  7  :  1.9924952562317844
+Topic  8  :  6.7452969515786
+Topic  9  :  5.271451331240318
 
 Document :  4
-Topic  0  :  23.756757493033376
+Topic  0  :  23.756757493033366
 Topic  1  :  -27.091327551727108
-Topic  2  :  -23.89061536052695
-Topic  3  :  -37.25708365140513
-Topic  4  :  -4.461059498889697
-Topic  5  :  15.77479183042617
-Topic  6  :  -2.520591747375176
-Topic  7  :  5.246221307484618
-Topic  8  :  6.6924439644866025
-Topic  9  :  8.529567046847195
+Topic  2  :  -23.890615360526727
+Topic  3  :  -37.257083651405146
+Topic  4  :  -4.461059498893926
+Topic  5  :  15.774791830425459
+Topic  6  :  -2.520591747375255
+Topic  7  :  5.246221307484604
+Topic  8  :  6.692443964486988
+Topic  9  :  8.52956704684558
 
 Document :  5
-Topic  0  :  13.239454928686259
-Topic  1  :  -16.864206810619674
-Topic  2  :  24.917221990278076
-Topic  3  :  5.119777141270242
-Topic  4  :  -4.769182956711375
-Topic  5  :  2.889755808471671
-Topic  6  :  2.4657632178359576
-Topic  7  :  3.460056030990101
-Topic  8  :  12.096462547257534
-Topic  9  :  3.205474468400656
+Topic  0  :  13.239454928686245
+Topic  1  :  -16.864206810619635
+Topic  2  :  24.917221990278062
+Topic  3  :  5.11977714127056
+Topic  4  :  -4.769182956711836
+Topic  5  :  2.8897558084709085
+Topic  6  :  2.465763217836031
+Topic  7  :  3.4600560309892185
+Topic  8  :  12.096462547257286
+Topic  9  :  3.2054744684010363
 
 Document :  6
-Topic  0  :  12.37797087463578
-Topic  1  :  -6.893412940264537
-Topic  2  :  4.489487191139791
-Topic  3  :  17.091249346761124
-Topic  4  :  1.4972235466012942
-Topic  5  :  -14.768956193844401
-Topic  6  :  9.95318349976652
-Topic  7  :  21.128399161538436
-Topic  8  :  19.454929087820815
-Topic  9  :  48.95943080975764
+Topic  0  :  12.377970874635777
+Topic  1  :  -6.893412940264576
+Topic  2  :  4.489487191139702
+Topic  3  :  17.091249346761323
+Topic  4  :  1.497223546605171
+Topic  5  :  -14.76895619384373
+Topic  6  :  9.953183499767036
+Topic  7  :  21.128399161537708
+Topic  8  :  19.454929087820698
+Topic  9  :  48.95943080975922
 
 Document :  7
-Topic  0  :  11.381153837646217
-Topic  1  :  -10.270291466546505
-Topic  2  :  18.08595793481623
-Topic  3  :  2.649802275320484
-Topic  4  :  -9.13832684941596
-Topic  5  :  5.000439103974524
-Topic  6  :  9.877785646891905
-Topic  7  :  -14.899400384233589
-Topic  8  :  49.38328491506617
-Topic  9  :  -23.207842493740056
+Topic  0  :  11.3811538376462
+Topic  1  :  -10.27029146654647
+Topic  2  :  18.085957934816207
+Topic  3  :  2.64980227532106
+Topic  4  :  -9.138326849416867
+Topic  5  :  5.000439103972748
+Topic  6  :  9.877785646891276
+Topic  7  :  -14.899400384236353
+Topic  8  :  49.383284915065964
+Topic  9  :  -23.207842493739626
 
 Document :  8
-Topic  0  :  18.50030616943503
-Topic  1  :  -13.447566178146865
-Topic  2  :  -13.683933516901172
-Topic  3  :  -7.479749590163704
-Topic  4  :  -0.6601402901692826
-Topic  5  :  3.1012626507565186
-Topic  6  :  0.3622582947809182
-Topic  7  :  -22.37855222284229
-Topic  8  :  -2.513764054778363
-Topic  9  :  7.749412507733567
+Topic  0  :  18.500306169435028
+Topic  1  :  -13.447566178146886
+Topic  2  :  -13.683933516901133
+Topic  3  :  -7.479749590163788
+Topic  4  :  -0.660140290170339
+Topic  5  :  3.1012626507560483
+Topic  6  :  0.3622582947805998
+Topic  7  :  -22.37855222284235
+Topic  8  :  -2.513764054779821
+Topic  9  :  7.749412507734671
 
 Document :  9
-Topic  0  :  29.891307288306802
-Topic  1  :  4.816381807120478
-Topic  2  :  -2.716120526214405
-Topic  3  :  -0.46485424059767233
-Topic  4  :  27.670764268313253
-Topic  5  :  14.490129487557606
-Topic  6  :  -4.450954632731431
-Topic  7  :  -20.335757386011068
-Topic  8  :  -12.828519802132373
-Topic  9  :  -27.90578552828859
+Topic  0  :  29.891307288306777
+Topic  1  :  4.816381807120428
+Topic  2  :  -2.7161205262143984
+Topic  3  :  -0.4648542405987112
+Topic  4  :  27.67076426831052
+Topic  5  :  14.49012948756253
+Topic  6  :  -4.4509546327318965
+Topic  7  :  -20.33575738601095
+Topic  8  :  -12.828519802134092
+Topic  9  :  -27.90578552828714
 
 Document :  10
-Topic  0  :  15.710959243544236
-Topic  1  :  -20.32706901856115
-Topic  2  :  35.380718870081765
-Topic  3  :  -18.253841021543195
-Topic  4  :  -1.6691460140713332
-Topic  5  :  6.589232079238018
-Topic  6  :  -17.710245715126586
-Topic  7  :  -3.2037431319459153
-Topic  8  :  -4.647970256356173
-Topic  9  :  1.5429907670423908
+Topic  0  :  15.710959243544231
+Topic  1  :  -20.32706901856104
+Topic  2  :  35.38071887008194
+Topic  3  :  -18.253841021543227
+Topic  4  :  -1.6691460140732688
+Topic  5  :  6.5892320792374655
+Topic  6  :  -17.710245715126504
+Topic  7  :  -3.2037431319452017
+Topic  8  :  -4.647970256356033
+Topic  9  :  1.5429907670417051
 
 Document :  11
-Topic  0  :  13.555011107567633
-Topic  1  :  -15.886195979956232
-Topic  2  :  46.62502297603343
-Topic  3  :  -16.42667093448567
-Topic  4  :  2.1000333123955492
-Topic  5  :  1.8017792568941557
-Topic  6  :  -19.277050171246994
-Topic  7  :  1.3058910924493337
-Topic  8  :  -18.75510569540256
-Topic  9  :  1.0935118776889
+Topic  0  :  13.55501110756762
+Topic  1  :  -15.886195979956122
+Topic  2  :  46.625022976033584
+Topic  3  :  -16.426670934485802
+Topic  4  :  2.1000333123946446
+Topic  5  :  1.8017792568943731
+Topic  6  :  -19.27705017124654
+Topic  7  :  1.305891092450632
+Topic  8  :  -18.755105695402627
+Topic  9  :  1.0935118776890795
 
 Document :  12
 Topic  0  :  26.837204651361812
-Topic  1  :  17.452610074525925
-Topic  2  :  1.4608428150832273
-Topic  3  :  2.2293038617307714
-Topic  4  :  3.3546423651676234
-Topic  5  :  -1.129531421953317
-Topic  6  :  -2.878511744805083
-Topic  7  :  4.777068644279008
-Topic  8  :  8.635545353271581
-Topic  9  :  8.373893280737384
+Topic  1  :  17.452610074525932
+Topic  2  :  1.4608428150832171
+Topic  3  :  2.229303861730615
+Topic  4  :  3.354642365167906
+Topic  5  :  -1.1295314219526649
+Topic  6  :  -2.878511744805065
+Topic  7  :  4.777068644278653
+Topic  8  :  8.635545353272118
+Topic  9  :  8.373893280736572
 
 Document :  13
-Topic  0  :  14.992401679363892
-Topic  1  :  -19.10345607087935
-Topic  2  :  48.83646575351942
-Topic  3  :  -9.715943984355151
-Topic  4  :  -0.010468461449452696
-Topic  5  :  -3.9514469015132447
-Topic  6  :  1.9760151922098543
-Topic  7  :  0.7001601696117051
-Topic  8  :  -17.5527946068978
-Topic  9  :  8.840073191542212
+Topic  0  :  14.992401679363882
+Topic  1  :  -19.10345607087925
+Topic  2  :  48.83646575351946
+Topic  3  :  -9.715943984354945
+Topic  4  :  -0.010468461449224926
+Topic  5  :  -3.951446901513079
+Topic  6  :  1.9760151922103626
+Topic  7  :  0.7001601696125589
+Topic  8  :  -17.552794606898047
+Topic  9  :  8.84007319154205
 
 Document :  14
-Topic  0  :  19.95997025464123
-Topic  1  :  -22.118822694628733
-Topic  2  :  -0.9959500127100014
-Topic  3  :  56.252163679620935
-Topic  4  :  -5.575290833377327
-Topic  5  :  59.71492046655362
-Topic  6  :  2.317714187754421
-Topic  7  :  3.14410746694166
-Topic  8  :  -15.390571123227797
-Topic  9  :  1.3778484384516978
+Topic  0  :  19.959970254641195
+Topic  1  :  -22.118822694628808
+Topic  2  :  -0.9959500127103673
+Topic  3  :  56.25216367962121
+Topic  4  :  -5.575290833386665
+Topic  5  :  59.71492046655265
+Topic  6  :  2.317714187752831
+Topic  7  :  3.144107466941641
+Topic  8  :  -15.390571123227382
+Topic  9  :  1.3778484384508605
 
 Document :  15
-Topic  0  :  30.107201480094613
-Topic  1  :  -27.378196442352383
-Topic  2  :  -26.331332732851365
-Topic  3  :  -21.029751066575912
-Topic  4  :  -0.8874453162463616
-Topic  5  :  6.240444070674943
-Topic  6  :  -1.6052292623256483
-Topic  7  :  -29.926717768604284
-Topic  8  :  2.843482943065774
-Topic  9  :  20.74880938149805
+Topic  0  :  30.107201480094602
+Topic  1  :  -27.378196442352404
+Topic  2  :  -26.33133273285122
+Topic  3  :  -21.02975106657613
+Topic  4  :  -0.887445316248572
+Topic  5  :  6.240444070674307
+Topic  6  :  -1.6052292623262199
+Topic  7  :  -29.926717768604377
+Topic  8  :  2.8434829430642616
+Topic  9  :  20.748809381498006
 
 Document :  16
-Topic  0  :  15.689216489560037
-Topic  1  :  -17.844292666485238
-Topic  2  :  -9.034910057596154
-Topic  3  :  23.063299442082304
-Topic  4  :  -14.878332510755826
-Topic  5  :  -28.574038584974176
-Topic  6  :  -20.75675039339906
-Topic  7  :  -13.489857687990506
-Topic  8  :  -5.667099312210149
-Topic  9  :  -8.319867721836724
+Topic  0  :  15.689216489560026
+Topic  1  :  -17.844292666485284
+Topic  2  :  -9.034910057596091
+Topic  3  :  23.06329944208249
+Topic  4  :  -14.878332510749722
+Topic  5  :  -28.57403858497758
+Topic  6  :  -20.756750393399162
+Topic  7  :  -13.489857687989437
+Topic  8  :  -5.667099312210744
+Topic  9  :  -8.3198677218366
 
 Document :  17
-Topic  0  :  23.703750764061677
-Topic  1  :  -8.751730813207912
-Topic  2  :  -4.844922864550736
-Topic  3  :  7.646224221872651
-Topic  4  :  7.796335216047334
-Topic  5  :  -7.892199238643406
-Topic  6  :  -1.8216919659771176
-Topic  7  :  -9.581322145485485
-Topic  8  :  5.081891523651977
-Topic  9  :  5.842479296344748
+Topic  0  :  23.703750764061684
+Topic  1  :  -8.751730813207944
+Topic  2  :  -4.844922864550708
+Topic  3  :  7.646224221872276
+Topic  4  :  7.796335216048872
+Topic  5  :  -7.892199238642183
+Topic  6  :  -1.8216919659772168
+Topic  7  :  -9.581322145485824
+Topic  8  :  5.081891523651487
+Topic  9  :  5.842479296345463
 
 Document :  18
-Topic  0  :  18.634695302177164
-Topic  1  :  -18.442777709742124
-Topic  2  :  1.220951907960071
-Topic  3  :  56.5509284857172
-Topic  4  :  -7.972330829540743
-Topic  5  :  59.47497769529237
-Topic  6  :  2.100948390874258
-Topic  7  :  4.375775882461658
-Topic  8  :  -13.870321577280118
-Topic  9  :  2.129950136110433
+Topic  0  :  18.634695302177136
+Topic  1  :  -18.442777709742188
+Topic  2  :  1.2209519079596967
+Topic  3  :  56.55092848571758
+Topic  4  :  -7.972330829550018
+Topic  5  :  59.47497769529095
+Topic  6  :  2.100948390872667
+Topic  7  :  4.375775882461634
+Topic  8  :  -13.870321577279556
+Topic  9  :  2.129950136109378
 
 Document :  19
-Topic  0  :  18.112924796750217
+Topic  0  :  18.112924796750214
 Topic  1  :  2.5804702731973963
-Topic  2  :  -1.066132496619461
-Topic  3  :  3.2355063478718984
-Topic  4  :  3.8775481097079254
-Topic  5  :  -6.666327141478326
-Topic  6  :  2.524333262472695
-Topic  7  :  6.868913734268767
-Topic  8  :  7.185790566867867
-Topic  9  :  10.861326524755883
+Topic  2  :  -1.066132496619464
+Topic  3  :  3.235506347871766
+Topic  4  :  3.8775481097093967
+Topic  5  :  -6.666327141477479
+Topic  6  :  2.5243332624728425
+Topic  7  :  6.868913734268453
+Topic  8  :  7.1857905668683495
+Topic  9  :  10.86132652475512
 
 Document :  20
-Topic  0  :  25.035949516065802
-Topic  1  :  3.214364588068465
-Topic  2  :  -1.9780065373740787
-Topic  3  :  -1.2374105596097358
-Topic  4  :  27.638762145684815
-Topic  5  :  6.200128300779579
-Topic  6  :  -3.6767830720161716
-Topic  7  :  -21.12093164388973
-Topic  8  :  -14.578343899632207
-Topic  9  :  -19.59235244970186
+Topic  0  :  25.035949516065788
+Topic  1  :  3.21436458806842
+Topic  2  :  -1.9780065373740559
+Topic  3  :  -1.2374105596107778
+Topic  4  :  27.638762145683604
+Topic  5  :  6.200128300784474
+Topic  6  :  -3.676783072016479
+Topic  7  :  -21.120931643889378
+Topic  8  :  -14.578343899634033
+Topic  9  :  -19.592352449700297
 
 Document :  21
-Topic  0  :  27.048700017651594
-Topic  1  :  19.861825930695115
-Topic  2  :  0.44133726693789094
-Topic  3  :  -6.411474056924265
-Topic  4  :  -19.757440888148942
-Topic  5  :  1.722227334325871
-Topic  6  :  3.962041492763077
-Topic  7  :  7.37625468671586
-Topic  8  :  -0.6203587609537143
-Topic  9  :  11.536373092002306
+Topic  0  :  27.0487000176516
+Topic  1  :  19.861825930695133
+Topic  2  :  0.44133726693783415
+Topic  3  :  -6.411474056923454
+Topic  4  :  -19.75744088814943
+Topic  5  :  1.722227334322271
+Topic  6  :  3.9620414927632646
+Topic  7  :  7.376254686715998
+Topic  8  :  -0.6203587609533121
+Topic  9  :  11.536373092002227
 
 Document :  22
-Topic  0  :  17.903913791973423
-Topic  1  :  -13.75176569316025
-Topic  2  :  -9.541969770786388
-Topic  3  :  -11.592843095374587
-Topic  4  :  2.2951825439589855
-Topic  5  :  3.6859638991996375
-Topic  6  :  0.70053985608413
-Topic  7  :  16.83878116144479
-Topic  8  :  -1.2956762265699033
-Topic  9  :  -15.809737409165942
+Topic  0  :  17.903913791973412
+Topic  1  :  -13.751765693160282
+Topic  2  :  -9.541969770786302
+Topic  3  :  -11.592843095374688
+Topic  4  :  2.2951825439580507
+Topic  5  :  3.6859638992003037
+Topic  6  :  0.7005398560845177
+Topic  7  :  16.838781161444594
+Topic  8  :  -1.295676226568982
+Topic  9  :  -15.809737409165722
 
 Document :  23
-Topic  0  :  38.61617209348286
-Topic  1  :  24.95488866654581
-Topic  2  :  4.117893747173941
-Topic  3  :  -0.21949643613739914
-Topic  4  :  -19.91902001362297
-Topic  5  :  -5.009316599276289
-Topic  6  :  -1.6167661010370296
-Topic  7  :  8.04565947358403
-Topic  8  :  7.257730578723888
-Topic  9  :  10.917855362509536
+Topic  0  :  38.61617209348287
+Topic  1  :  24.954888666545845
+Topic  2  :  4.117893747173895
+Topic  3  :  -0.21949643613665276
+Topic  4  :  -19.919020013621918
+Topic  5  :  -5.009316599279959
+Topic  6  :  -1.6167661010368932
+Topic  7  :  8.045659473584054
+Topic  8  :  7.257730578724471
+Topic  9  :  10.917855362508687
 
 Document :  24
-Topic  0  :  15.568973160051296
-Topic  1  :  -9.56113360895399
-Topic  2  :  -3.568715636469687
-Topic  3  :  28.139813141403536
-Topic  4  :  -19.91860117566678
-Topic  5  :  -41.866048454943744
-Topic  6  :  -33.01329030618207
-Topic  7  :  -1.054115698390321
-Topic  8  :  -1.9269804867663283
-Topic  9  :  -14.76166803467347
+Topic  0  :  15.568973160051295
+Topic  1  :  -9.561133608953993
+Topic  2  :  -3.568715636469576
+Topic  3  :  28.139813141403746
+Topic  4  :  -19.918601175657784
+Topic  5  :  -41.86604845494806
+Topic  6  :  -33.013290306181936
+Topic  7  :  -1.054115698388755
+Topic  8  :  -1.9269804867663272
+Topic  9  :  -14.761668034674798
 
 Document :  25
-Topic  0  :  28.150152745320955
-Topic  1  :  -29.2546858569393
-Topic  2  :  -27.42781303682661
-Topic  3  :  -24.460567986765746
-Topic  4  :  -4.24477521814062
-Topic  5  :  1.9487295981162778
-Topic  6  :  -1.4026675666603337
-Topic  7  :  -24.68080887486233
-Topic  8  :  3.9369884370276638
-Topic  9  :  20.27066348190962
+Topic  0  :  28.15015274532095
+Topic  1  :  -29.25468585693932
+Topic  2  :  -27.427813036826436
+Topic  3  :  -24.46056798676585
+Topic  4  :  -4.244775218142098
+Topic  5  :  1.9487295981150867
+Topic  6  :  -1.402667566660722
+Topic  7  :  -24.680808874862404
+Topic  8  :  3.936988437026441
+Topic  9  :  20.270663481909555
 
 Document :  26
-Topic  0  :  19.97981884566364
-Topic  1  :  -3.585544792672868
-Topic  2  :  -3.590191552245804
-Topic  3  :  5.656773795563697
-Topic  4  :  6.9377498296209605
-Topic  5  :  -10.010988524744944
-Topic  6  :  3.774911745955066
-Topic  7  :  14.636280245596653
-Topic  8  :  3.2259957741500838
-Topic  9  :  -4.211131040656305
+Topic  0  :  19.979818845663637
+Topic  1  :  -3.58554479267292
+Topic  2  :  -3.590191552245793
+Topic  3  :  5.6567737955634785
+Topic  4  :  6.937749829623163
+Topic  5  :  -10.010988524743462
+Topic  6  :  3.7749117459554733
+Topic  7  :  14.636280245596382
+Topic  8  :  3.2259957741509235
+Topic  9  :  -4.211131040655471
 
 Document :  27
-Topic  0  :  35.97262156459838
-Topic  1  :  31.1733521413535
-Topic  2  :  0.6649541742888686
-Topic  3  :  -9.055676069743079
-Topic  4  :  -37.56110857430353
-Topic  5  :  6.2048024813031555
-Topic  6  :  4.497203996524618
-Topic  7  :  4.527636092179856
-Topic  8  :  -1.5357743704532236
-Topic  9  :  2.4473007709815273
+Topic  0  :  35.972621564598384
+Topic  1  :  31.17335214135354
+Topic  2  :  0.6649541742887748
+Topic  3  :  -9.055676069741608
+Topic  4  :  -37.56110857430501
+Topic  5  :  6.204802481296236
+Topic  6  :  4.4972039965246235
+Topic  7  :  4.527636092180152
+Topic  8  :  -1.5357743704527167
+Topic  9  :  2.447300770981304
 
 Document :  28
 Topic  0  :  21.928712320161836
-Topic  1  :  12.563155186455976
-Topic  2  :  3.6479254290422274
-Topic  3  :  8.01140216092948
-Topic  4  :  34.32895594092505
-Topic  5  :  -5.2950638912283505
-Topic  6  :  -4.097029978628365
-Topic  7  :  -0.6833799213219081
-Topic  8  :  10.605448834539546
-Topic  9  :  4.5399895903980925
+Topic  1  :  12.563155186455962
+Topic  2  :  3.6479254290422376
+Topic  3  :  8.011402160928217
+Topic  4  :  34.32895594092626
+Topic  5  :  -5.295063891221948
+Topic  6  :  -4.097029978628373
+Topic  7  :  -0.6833799213225356
+Topic  8  :  10.605448834539766
+Topic  9  :  4.539989590396831
 
 Document :  29
-Topic  0  :  20.158967534859094
-Topic  1  :  -14.241017331571182
-Topic  2  :  -3.546776510410661
-Topic  3  :  19.819193374708473
-Topic  4  :  -10.011992085969155
-Topic  5  :  -15.371978517443946
-Topic  6  :  0.1037143453828976
-Topic  7  :  -4.113528271415623
-Topic  8  :  -4.395291925725267
-Topic  9  :  -1.6563030762253732
+Topic  0  :  20.158967534859077
+Topic  1  :  -14.241017331571234
+Topic  2  :  -3.546776510410697
+Topic  3  :  19.819193374708817
+Topic  4  :  -10.011992085965591
+Topic  5  :  -15.371978517445942
+Topic  6  :  0.10371434538285199
+Topic  7  :  -4.113528271415163
+Topic  8  :  -4.395291925725404
+Topic  9  :  -1.6563030762251234
 
 Document :  30
-Topic  0  :  13.580465348579047
-Topic  1  :  -8.110957216431796
-Topic  2  :  -1.840559090360829
-Topic  3  :  0.006014580329269381
-Topic  4  :  0.5254893145641608
-Topic  5  :  -0.29944312680155394
-Topic  6  :  2.956517445850822
-Topic  7  :  15.359836377900194
-Topic  8  :  9.087682530812257
-Topic  9  :  21.10581980502466
+Topic  0  :  13.580465348579038
+Topic  1  :  -8.110957216431808
+Topic  2  :  -1.8405590903608195
+Topic  3  :  0.006014580329328362
+Topic  4  :  0.5254893145645095
+Topic  5  :  -0.29944312680124185
+Topic  6  :  2.956517445851098
+Topic  7  :  15.359836377899827
+Topic  8  :  9.087682530812717
+Topic  9  :  21.105819805024694
 
 Document :  31
-Topic  0  :  42.81486725358552
-Topic  1  :  38.224309210001415
-Topic  2  :  0.8615799357007176
-Topic  3  :  -13.07897968639721
-Topic  4  :  -38.42455132132188
-Topic  5  :  8.06082183948026
-Topic  6  :  1.8962386846143153
-Topic  7  :  0.9771012328813408
-Topic  8  :  -3.8191978656023626
-Topic  9  :  0.8862200229238643
+Topic  0  :  42.81486725358553
+Topic  1  :  38.224309210001465
+Topic  2  :  0.8615799357006309
+Topic  3  :  -13.078979686395739
+Topic  4  :  -38.42455132132391
+Topic  5  :  8.060821839473075
+Topic  6  :  1.896238684614305
+Topic  7  :  0.9771012328817426
+Topic  8  :  -3.8191978656020518
+Topic  9  :  0.8862200229237717
 
 Document :  32
-Topic  0  :  19.75682035021899
-Topic  1  :  -16.171499234750314
-Topic  2  :  -9.251107744721795
-Topic  3  :  1.222783899970805
-Topic  4  :  3.143421256360654
-Topic  5  :  -5.3666115268092796
-Topic  6  :  4.564939679909622
-Topic  7  :  -19.347313306584578
-Topic  8  :  -2.4463793160453484
-Topic  9  :  8.344855733829387
+Topic  0  :  19.75682035021898
+Topic  1  :  -16.171499234750357
+Topic  2  :  -9.25110774472179
+Topic  3  :  1.2227838999706593
+Topic  4  :  3.143421256361452
+Topic  5  :  -5.366611526808935
+Topic  6  :  4.564939679909372
+Topic  7  :  -19.347313306584514
+Topic  8  :  -2.446379316046374
+Topic  9  :  8.344855733829895
 
 Document :  33
-Topic  0  :  15.79723306506335
-Topic  1  :  -9.344105896264546
-Topic  2  :  -4.7053012912710575
-Topic  3  :  -2.0054126729603254
-Topic  4  :  10.32425800091383
-Topic  5  :  -2.101746695082041
-Topic  6  :  2.1063417761319885
-Topic  7  :  28.9814844263493
-Topic  8  :  -1.1398749389351113
-Topic  9  :  -19.40875350699159
+Topic  0  :  15.797233065063345
+Topic  1  :  -9.344105896264592
+Topic  2  :  -4.70530129127101
+Topic  3  :  -2.0054126729606505
+Topic  4  :  10.324258000914366
+Topic  5  :  -2.101746695079694
+Topic  6  :  2.1063417761326675
+Topic  7  :  28.981484426349024
+Topic  8  :  -1.1398749389335245
+Topic  9  :  -19.408753506991435
 
 Document :  34
-Topic  0  :  23.926604633318586
-Topic  1  :  -1.547247852599291
-Topic  2  :  4.6238385682394245
-Topic  3  :  5.618053551746481
-Topic  4  :  4.552410608950437
-Topic  5  :  -15.361890724497457
-Topic  6  :  18.88604930476402
-Topic  7  :  18.071939469029193
-Topic  8  :  9.238304382837773
-Topic  9  :  35.143328971480784
+Topic  0  :  23.926604633318583
+Topic  1  :  -1.5472478525993199
+Topic  2  :  4.623838568239356
+Topic  3  :  5.61805355174663
+Topic  4  :  4.552410608953918
+Topic  5  :  -15.361890724496085
+Topic  6  :  18.886049304764615
+Topic  7  :  18.071939469028713
+Topic  8  :  9.238304382838008
+Topic  9  :  35.143328971481665
 
 Document :  35
-Topic  0  :  22.769859333440667
-Topic  1  :  -17.256175626971913
-Topic  2  :  -5.963304225942085
-Topic  3  :  34.81663922708827
-Topic  4  :  -25.195343412096445
-Topic  5  :  -49.91850306209832
-Topic  6  :  -38.02819503489407
-Topic  7  :  -6.101828478669316
-Topic  8  :  -2.8693395272035476
-Topic  9  :  -12.173845026551643
+Topic  0  :  22.76985933344065
+Topic  1  :  -17.25617562697193
+Topic  2  :  -5.963304225941957
+Topic  3  :  34.8166392270886
+Topic  4  :  -25.195343412085712
+Topic  5  :  -49.91850306210382
+Topic  6  :  -38.028195034893976
+Topic  7  :  -6.101828478667488
+Topic  8  :  -2.869339527203843
+Topic  9  :  -12.173845026552758
 
 Document :  36
-Topic  0  :  44.75638810819805
-Topic  1  :  29.00664068090003
-Topic  2  :  2.074836866952186
-Topic  3  :  8.235530080342384
-Topic  4  :  58.67328305264048
-Topic  5  :  -4.515409401360921
-Topic  6  :  -7.150208041026793
-Topic  7  :  -6.845052973658785
-Topic  8  :  4.015887705098669
-Topic  9  :  -2.019607661764528
+Topic  0  :  44.75638810819804
+Topic  1  :  29.006640680899988
+Topic  2  :  2.074836866952197
+Topic  3  :  8.2355300803402
+Topic  4  :  58.673283052641565
+Topic  5  :  -4.515409401350055
+Topic  6  :  -7.1502080410268505
+Topic  7  :  -6.8450529736592856
+Topic  8  :  4.015887705098405
+Topic  9  :  -2.0196076617654644
 
 Document :  37
-Topic  0  :  22.22618807951208
-Topic  1  :  8.61979081349463
-Topic  2  :  1.388996817637677
-Topic  3  :  3.8895156514057483
-Topic  4  :  16.085812380636387
-Topic  5  :  -6.493090205342976
-Topic  6  :  -0.9946998710556331
-Topic  7  :  5.364932625229229
-Topic  8  :  1.2432450221547704
-Topic  9  :  1.8067978809442338
+Topic  0  :  22.226188079512088
+Topic  1  :  8.61979081349462
+Topic  2  :  1.3889968176376781
+Topic  3  :  3.8895156514051266
+Topic  4  :  16.085812380637744
+Topic  5  :  -6.493090205339897
+Topic  6  :  -0.994699871055442
+Topic  7  :  5.36493262522912
+Topic  8  :  1.2432450221552311
+Topic  9  :  1.8067978809436183
 
 Document :  38
 Topic  0  :  53.27717280264863
-Topic  1  :  38.39302186478906
-Topic  2  :  0.2863239981579246
-Topic  3  :  -7.66835393565458
-Topic  4  :  -20.831997215839692
-Topic  5  :  10.709081440615547
-Topic  6  :  -0.9745011945648294
-Topic  7  :  -3.7775514029187356
-Topic  8  :  -9.968630486644711
-Topic  9  :  -12.80014332418887
+Topic  1  :  38.39302186478907
+Topic  2  :  0.28632399815783705
+Topic  3  :  -7.668353935653782
+Topic  4  :  -20.83199721584197
+Topic  5  :  10.709081440611614
+Topic  6  :  -0.9745011945649659
+Topic  7  :  -3.777551402918198
+Topic  8  :  -9.968630486645134
+Topic  9  :  -12.80014332418803
 
 Document :  39
 Topic  0  :  21.267737664141407
-Topic  1  :  -11.08171112914072
-Topic  2  :  2.8976516387622673
-Topic  3  :  20.983280010606837
-Topic  4  :  -3.1897386574409934
-Topic  5  :  -7.406265325369405
-Topic  6  :  7.209433600259005
-Topic  7  :  12.29327910578999
-Topic  8  :  10.356464712732333
-Topic  9  :  26.64114885421636
+Topic  1  :  -11.081711129140762
+Topic  2  :  2.897651638762145
+Topic  3  :  20.983280010607146
+Topic  4  :  -3.189738657438637
+Topic  5  :  -7.406265325369768
+Topic  6  :  7.209433600259195
+Topic  7  :  12.293279105789583
+Topic  8  :  10.356464712732178
+Topic  9  :  26.64114885421778
 
 Document :  40
-Topic  0  :  22.317517076229656
-Topic  1  :  -23.42211357942007
-Topic  2  :  -16.081978241364148
-Topic  3  :  -6.866749690880209
-Topic  4  :  2.1799674262195468
-Topic  5  :  0.5155313894446827
-Topic  6  :  -0.7918742960952453
-Topic  7  :  30.982321873005148
-Topic  8  :  -3.820424343903632
-Topic  9  :  -24.725773114810405
+Topic  0  :  22.31751707622964
+Topic  1  :  -23.422113579420127
+Topic  2  :  -16.08197824136404
+Topic  3  :  -6.8667496908803365
+Topic  4  :  2.1799674262194637
+Topic  5  :  0.5155313894455059
+Topic  6  :  -0.7918742960946006
+Topic  7  :  30.98232187300507
+Topic  8  :  -3.8204243439017036
+Topic  9  :  -24.725773114810334
 
 Document :  41
-Topic  0  :  11.575774189928365
-Topic  1  :  -3.769351719594756
-Topic  2  :  -1.3209135298682464
-Topic  3  :  7.109447007537471
-Topic  4  :  2.6841304299090383
-Topic  5  :  3.0154623347235567
-Topic  6  :  -0.06890897227198631
-Topic  7  :  -1.4413234714742453
-Topic  8  :  -1.1403147938974865
-Topic  9  :  5.132563230583262
+Topic  0  :  11.575774189928357
+Topic  1  :  -3.7693517195947748
+Topic  2  :  -1.3209135298682955
+Topic  3  :  7.109447007537377
+Topic  4  :  2.684130429908777
+Topic  5  :  3.015462334724019
+Topic  6  :  -0.06890897227208662
+Topic  7  :  -1.441323471474244
+Topic  8  :  -1.140314793897767
+Topic  9  :  5.13256323058346
 
 Document :  42
-Topic  0  :  21.243930478273697
-Topic  1  :  -21.824870026663927
-Topic  2  :  -12.919099254314384
-Topic  3  :  -12.339852452651344
-Topic  4  :  6.7202797523392075
-Topic  5  :  -1.2644007912702644
-Topic  6  :  -1.6967417422444964
-Topic  7  :  42.41087088919761
-Topic  8  :  -0.5499271427681199
-Topic  9  :  -28.711719679796545
+Topic  0  :  21.243930478273683
+Topic  1  :  -21.824870026663987
+Topic  2  :  -12.91909925431424
+Topic  3  :  -12.339852452651622
+Topic  4  :  6.720279752339422
+Topic  5  :  -1.2644007912684538
+Topic  6  :  -1.696741742243529
+Topic  7  :  42.410870889197334
+Topic  8  :  -0.549927142765718
+Topic  9  :  -28.71171967979641
 
 Document :  43
-Topic  0  :  21.966015080372074
-Topic  1  :  -18.48677605571493
-Topic  2  :  -8.090649277393455
-Topic  3  :  -1.9891709392496066
-Topic  4  :  2.6601387296856607
-Topic  5  :  -7.613266719792132
-Topic  6  :  -2.4241638243336308
-Topic  7  :  29.906407213385727
-Topic  8  :  -5.30389044200788
-Topic  9  :  -20.200900617141958
+Topic  0  :  21.966015080372063
+Topic  1  :  -18.486776055714977
+Topic  2  :  -8.090649277393362
+Topic  3  :  -1.98917093924976
+Topic  4  :  2.660138729687346
+Topic  5  :  -7.61326671979128
+Topic  6  :  -2.424163824332917
+Topic  7  :  29.90640721338591
+Topic  8  :  -5.3038904420060415
+Topic  9  :  -20.200900617141528
 
 Document :  44
-Topic  0  :  17.754810023655395
-Topic  1  :  -23.18257465591553
-Topic  2  :  59.31574205369786
-Topic  3  :  -18.656125064570308
-Topic  4  :  0.10649072552510586
-Topic  5  :  5.0841220969565075
-Topic  6  :  -17.078051807831717
-Topic  7  :  -3.642250537197617
-Topic  8  :  -8.254817479606324
-Topic  9  :  1.778487568084788
+Topic  0  :  17.754810023655388
+Topic  1  :  -23.18257465591539
+Topic  2  :  59.31574205369803
+Topic  3  :  -18.656125064570293
+Topic  4  :  0.10649072552339925
+Topic  5  :  5.084122096956337
+Topic  6  :  -17.07805180783142
+Topic  7  :  -3.6422505371968747
+Topic  8  :  -8.254817479606478
+Topic  9  :  1.778487568084682
 
 Document :  45
-Topic  0  :  17.286259677473254
-Topic  1  :  -2.199799668523217
-Topic  2  :  0.17091423450711743
-Topic  3  :  4.454920454884859
-Topic  4  :  4.677644025751892
-Topic  5  :  -11.013464481628551
-Topic  6  :  1.6138317593816471
-Topic  7  :  5.814942535275663
-Topic  8  :  6.792800290207013
-Topic  9  :  15.74928411252852
+Topic  0  :  17.28625967747325
+Topic  1  :  -2.1997996685232337
+Topic  2  :  0.17091423450712695
+Topic  3  :  4.45492045488471
+Topic  4  :  4.677644025754191
+Topic  5  :  -11.01346448162765
+Topic  6  :  1.6138317593819014
+Topic  7  :  5.814942535275434
+Topic  8  :  6.7928002902071825
+Topic  9  :  15.749284112528846
 
 Document :  46
-Topic  0  :  21.07920014919565
-Topic  1  :  -28.864135153012693
-Topic  2  :  -21.710673020042762
-Topic  3  :  -24.392889015742362
-Topic  4  :  1.7886029100913488
-Topic  5  :  10.822059732777994
-Topic  6  :  -1.5093200464564553
-Topic  7  :  34.14685711336949
-Topic  8  :  9.01825950668022
-Topic  9  :  -10.856577726610228
+Topic  0  :  21.079200149195632
+Topic  1  :  -28.86413515301275
+Topic  2  :  -21.710673020042584
+Topic  3  :  -24.39288901574249
+Topic  4  :  1.7886029100888052
+Topic  5  :  10.822059732778849
+Topic  6  :  -1.5093200464559002
+Topic  7  :  34.14685711336895
+Topic  8  :  9.018259506681868
+Topic  9  :  -10.856577726610666
 
 Document :  47
 Topic  0  :  32.93485838912073
-Topic  1  :  19.368857486000906
-Topic  2  :  2.533075732639925
-Topic  3  :  -1.1780456092679579
-Topic  4  :  12.22412646803093
-Topic  5  :  -5.028972250369162
-Topic  6  :  -0.15540026706091803
-Topic  7  :  2.4015296665240102
-Topic  8  :  1.677261202203899
-Topic  9  :  7.4699009014449285
+Topic  1  :  19.368857486000902
+Topic  2  :  2.5330757326399187
+Topic  3  :  -1.1780456092683855
+Topic  4  :  12.224126468031871
+Topic  5  :  -5.0289722503668575
+Topic  6  :  -0.15540026706075075
+Topic  7  :  2.401529666523954
+Topic  8  :  1.6772612022040185
+Topic  9  :  7.469900901444791
 
 Document :  48
-Topic  0  :  28.480703390853208
-Topic  1  :  -31.12351578360611
-Topic  2  :  -21.701990907037306
-Topic  3  :  -7.151092462666826
-Topic  4  :  -1.7940166931784673
-Topic  5  :  5.944129791836711
-Topic  6  :  -7.231744929879586
-Topic  7  :  -35.19966792305949
-Topic  8  :  -3.484658939619899
-Topic  9  :  7.8160491234889
+Topic  0  :  28.480703390853186
+Topic  1  :  -31.12351578360614
+Topic  2  :  -21.701990907037207
+Topic  3  :  -7.151092462667043
+Topic  4  :  -1.79401669318019
+Topic  5  :  5.944129791835691
+Topic  6  :  -7.231744929880249
+Topic  7  :  -35.199667923059415
+Topic  8  :  -3.4846589396218848
+Topic  9  :  7.816049123489897
 
 Document :  49
-Topic  0  :  13.025044476119652
-Topic  1  :  -14.399136839543877
-Topic  2  :  5.627399152878943
-Topic  3  :  9.882692554511799
-Topic  4  :  -0.8167976370571279
-Topic  5  :  5.106246639500893
-Topic  6  :  4.48590658967421
-Topic  7  :  17.997131281630008
-Topic  8  :  15.600752133149756
-Topic  9  :  15.631252505269666
+Topic  0  :  13.025044476119637
+Topic  1  :  -14.399136839543903
+Topic  2  :  5.627399152878893
+Topic  3  :  9.882692554512
+Topic  4  :  -0.8167976370575788
+Topic  5  :  5.106246639501074
+Topic  6  :  4.485906589674384
+Topic  7  :  17.997131281629088
+Topic  8  :  15.60075213314997
+Topic  9  :  15.63125250527014
 
 Document :  50
-Topic  0  :  15.401621294355964
-Topic  1  :  -21.369583119690684
-Topic  2  :  55.58195789875372
-Topic  3  :  -15.462291500473471
-Topic  4  :  -0.027985124297853315
-Topic  5  :  2.3471907190452885
-Topic  6  :  -18.086398740752117
-Topic  7  :  3.547640816723356
-Topic  8  :  -13.59540118700565
-Topic  9  :  7.225165088678985
+Topic  0  :  15.401621294355955
+Topic  1  :  -21.36958311969056
+Topic  2  :  55.58195789875386
+Topic  3  :  -15.462291500473466
+Topic  4  :  -0.027985124298903236
+Topic  5  :  2.3471907190451553
+Topic  6  :  -18.086398740751605
+Topic  7  :  3.547640816724315
+Topic  8  :  -13.59540118700572
+Topic  9  :  7.225165088678953
 
 Document :  51
-Topic  0  :  17.869442504717394
-Topic  1  :  -23.899851931124633
-Topic  2  :  -19.72063500663042
-Topic  3  :  -31.30883094846829
-Topic  4  :  -1.4357024136343595
-Topic  5  :  13.295403120218763
-Topic  6  :  -5.091264043701376
-Topic  7  :  0.8676103404150957
-Topic  8  :  7.011715849178213
-Topic  9  :  10.726367883642332
+Topic  0  :  17.86944250471739
+Topic  1  :  -23.899851931124626
+Topic  2  :  -19.720635006630204
+Topic  3  :  -31.308830948468447
+Topic  4  :  -1.4357024136379786
+Topic  5  :  13.295403120218488
+Topic  6  :  -5.091264043701538
+Topic  7  :  0.8676103404151256
+Topic  8  :  7.0117158491784695
+Topic  9  :  10.726367883640625
 
 Document :  52
-Topic  0  :  12.049470251870549
-Topic  1  :  -10.629647928365255
-Topic  2  :  15.716403445205787
-Topic  3  :  6.1262708288347865
-Topic  4  :  -8.397064153005928
-Topic  5  :  0.40349502530021353
-Topic  6  :  21.000119148030937
-Topic  7  :  -13.934813057727682
-Topic  8  :  47.54428803283388
-Topic  9  :  -22.76098281350977
+Topic  0  :  12.049470251870535
+Topic  1  :  -10.629647928365236
+Topic  2  :  15.71640344520571
+Topic  3  :  6.126270828835434
+Topic  4  :  -8.397064153005795
+Topic  5  :  0.4034950252988228
+Topic  6  :  21.00011914803039
+Topic  7  :  -13.934813057730516
+Topic  8  :  47.54428803283357
+Topic  9  :  -22.760982813508864
 
 Document :  53
-Topic  0  :  17.501443397271533
-Topic  1  :  -16.942438814726295
-Topic  2  :  9.341496455801002
-Topic  3  :  1.9156543259494279
-Topic  4  :  -3.023765623687473
-Topic  5  :  -25.356392218404363
-Topic  6  :  68.96493444660604
-Topic  7  :  -11.592924778444178
-Topic  8  :  -32.120308958474446
-Topic  9  :  -8.908291177688803
+Topic  0  :  17.501443397271526
+Topic  1  :  -16.94243881472631
+Topic  2  :  9.341496455800788
+Topic  3  :  1.9156543259503298
+Topic  4  :  -3.0237656236830635
+Topic  5  :  -25.356392218403805
+Topic  6  :  68.9649344466063
+Topic  7  :  -11.592924778443372
+Topic  8  :  -32.12030895847449
+Topic  9  :  -8.908291177690089
 
 Document :  54
-Topic  0  :  21.616797815405118
-Topic  1  :  -17.207922257529415
-Topic  2  :  -11.737211696090707
-Topic  3  :  4.30119173505231
-Topic  4  :  -0.9430651015911099
-Topic  5  :  -7.458938009421681
-Topic  6  :  -10.593573024245552
-Topic  7  :  -27.35837307693326
-Topic  8  :  -7.181616693614676
-Topic  9  :  0.5907187617908284
+Topic  0  :  21.616797815405107
+Topic  1  :  -17.207922257529454
+Topic  2  :  -11.737211696090647
+Topic  3  :  4.3011917350521
+Topic  4  :  -0.9430651015897826
+Topic  5  :  -7.4589380094225195
+Topic  6  :  -10.593573024245922
+Topic  7  :  -27.35837307693275
+Topic  8  :  -7.181616693616223
+Topic  9  :  0.5907187617919061
 
 Document :  55
-Topic  0  :  15.208398553000729
-Topic  1  :  -9.550119346448946
-Topic  2  :  -3.1075483269215107
-Topic  3  :  15.66579477831828
-Topic  4  :  -4.137302625888635
-Topic  5  :  12.468071710766793
-Topic  6  :  -2.23364545099843
-Topic  7  :  -2.8195568694192428
-Topic  8  :  -4.861954889475639
-Topic  9  :  1.0800690577012544
+Topic  0  :  15.208398553000716
+Topic  1  :  -9.550119346448978
+Topic  2  :  -3.1075483269215898
+Topic  3  :  15.665794778318375
+Topic  4  :  -4.137302625890429
+Topic  5  :  12.468071710765907
+Topic  6  :  -2.2336454509988704
+Topic  7  :  -2.819556869419071
+Topic  8  :  -4.861954889475869
+Topic  9  :  1.0800690577014673
 
 Document :  56
 Topic  0  :  46.81663150051835
-Topic  1  :  27.627741486502995
-Topic  2  :  3.6451405284076275
-Topic  3  :  6.709200381741742
-Topic  4  :  53.04242234297127
-Topic  5  :  -4.290837836108297
-Topic  6  :  -5.983513749835828
-Topic  7  :  -3.533156962002537
-Topic  8  :  5.127292748116893
-Topic  9  :  2.6293504329417154
+Topic  1  :  27.62774148650296
+Topic  2  :  3.645140528407638
+Topic  3  :  6.709200381739786
+Topic  4  :  53.042422342972294
+Topic  5  :  -4.290837836098435
+Topic  6  :  -5.983513749835819
+Topic  7  :  -3.5331569620030465
+Topic  8  :  5.127292748116809
+Topic  9  :  2.629350432940797
 
 Document :  57
-Topic  0  :  21.705977485299087
-Topic  1  :  -12.62294584223675
-Topic  2  :  -7.598602934877177
-Topic  3  :  1.7639932102434666
-Topic  4  :  2.915980951114349
-Topic  5  :  -13.076501909064058
-Topic  6  :  3.203346036503814
-Topic  7  :  13.615638246364622
-Topic  8  :  -7.985832875299936
-Topic  9  :  -12.49496665246181
+Topic  0  :  21.705977485299073
+Topic  1  :  -12.62294584223681
+Topic  2  :  -7.598602934877133
+Topic  3  :  1.7639932102433573
+Topic  4  :  2.915980951116978
+Topic  5  :  -13.076501909063332
+Topic  6  :  3.2033460365043296
+Topic  7  :  13.615638246364902
+Topic  8  :  -7.9858328752989705
+Topic  9  :  -12.49496665246121
 
 Document :  58
-Topic  0  :  55.365945063091516
-Topic  1  :  45.91909272991181
-Topic  2  :  -0.2577180876752317
-Topic  3  :  -10.127395103059857
-Topic  4  :  -30.942562585925522
-Topic  5  :  11.283972780730616
-Topic  6  :  -0.45084662551693283
-Topic  7  :  -1.0247035973804306
-Topic  8  :  -9.567424760674811
-Topic  9  :  -11.348793322146863
+Topic  0  :  55.36594506309154
+Topic  1  :  45.91909272991183
+Topic  2  :  -0.25771808767533855
+Topic  3  :  -10.127395103058682
+Topic  4  :  -30.94256258592799
+Topic  5  :  11.283972780724817
+Topic  6  :  -0.4508466255170275
+Topic  7  :  -1.0247035973798349
+Topic  8  :  -9.567424760674935
+Topic  9  :  -11.348793322146262
 
 Document :  59
-Topic  0  :  15.834102656245221
-Topic  1  :  -11.250031971544436
-Topic  2  :  23.9032387851369
-Topic  3  :  5.1858621329458705
-Topic  4  :  -7.217673249984399
-Topic  5  :  5.830025008217869
-Topic  6  :  20.72257827161061
-Topic  7  :  -19.832892746599533
-Topic  8  :  64.48720529125403
-Topic  9  :  -29.992488314067845
+Topic  0  :  15.834102656245202
+Topic  1  :  -11.250031971544397
+Topic  2  :  23.90323878513683
+Topic  3  :  5.185862132946534
+Topic  4  :  -7.21767324998539
+Topic  5  :  5.830025008216594
+Topic  6  :  20.7225782716098
+Topic  7  :  -19.83289274660334
+Topic  8  :  64.48720529125366
+Topic  9  :  -29.992488314067167
 </pre></div>
 </div>
 </div>
@@ -10104,6 +10143,10 @@ reality virtual dunia augmented second ajar life hujan teknologi class
 
 Topic 9: 
 dokumen web html deteksi server karyawan jiplak enkripsi kriteria terima 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
 </div>
