@@ -54,7 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TOPIC MODELLING LSA PYTHON PTA TEKNIK INFORMATIKA" href="190411100151_Rizki%20Ashuri%20Pratama_Topic_Modelling_LSA_Teknik_Informatika.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -122,11 +121,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="190411100151_Rizki%20Ashuri%20Pratama_Topic_Modelling_LSA_Teknik_Informatika.html">
-   TOPIC MODELLING LSA PYTHON PTA TEKNIK INFORMATIKA
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="190411100151_Rizki%20Ashuri%20Pratama_Topic_Modelling_LSA_Ekonomi.html">
    TOPIC MODELLING LSA PYTHON PTA EKONOMI-MANAJEMEN
   </a>
@@ -190,7 +184,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/RizkiAshPrat/Materi-PPW/master?urlpath=tree/docs/190411100151_Rizki Ashuri Pratama_Text_Clustering.ipynb"
+        <a href="https://mybinder.org/v2/gh/RizkiAshPrat/Materi-PPW/main?urlpath=tree/ipynb/190411100151_Rizki Ashuri Pratama_Text_Clustering.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -208,7 +202,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://colab.research.google.com/github/RizkiAshPrat/Materi-PPW/blob/master/docs/190411100151_Rizki Ashuri Pratama_Text_Clustering.ipynb"
+        <a href="https://colab.research.google.com/github/RizkiAshPrat/Materi-PPW/blob/main/ipynb/190411100151_Rizki Ashuri Pratama_Text_Clustering.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -251,7 +245,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/RizkiAshPrat/Materi-PPW/tree/main/ipynb"
+        <a href="https://github.com/RizkiAshPrat/Materi-PPW"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -268,7 +262,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/RizkiAshPrat/Materi-PPW/tree/main/ipynb/issues/new?title=Issue%20on%20page%20%2F190411100151_Rizki Ashuri Pratama_Text_Clustering.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/RizkiAshPrat/Materi-PPW/issues/new?title=Issue%20on%20page%20%2F190411100151_Rizki Ashuri Pratama_Text_Clustering.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -594,192 +588,64 @@ title="Print to PDF"
 <h1>Text Clustering<a class="headerlink" href="#text-clustering" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install Scrapy
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Scrapy in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (2.6.1)
-Requirement already satisfied: Twisted&gt;=17.9.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (22.2.0)
-Requirement already satisfied: lxml&gt;=3.5.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (4.8.0)
-Requirement already satisfied: cryptography&gt;=2.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (36.0.1)
-Requirement already satisfied: parsel&gt;=1.5.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (1.6.0)
-Requirement already satisfied: queuelib&gt;=1.4.2 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (1.6.2)
-Requirement already satisfied: itemadapter&gt;=0.1.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (0.4.0)
-Requirement already satisfied: itemloaders&gt;=1.0.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (1.0.4)
-Requirement already satisfied: cssselect&gt;=0.9.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (1.1.0)
-Requirement already satisfied: setuptools in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (58.1.0)
-Requirement already satisfied: service-identity&gt;=16.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (21.1.0)
-Requirement already satisfied: pyOpenSSL&gt;=16.2.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (22.0.0)
-Requirement already satisfied: tldextract in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (3.2.0)
-Requirement already satisfied: PyDispatcher&gt;=2.0.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (2.0.5)
-Requirement already satisfied: w3lib&gt;=1.17.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (1.22.0)
-Requirement already satisfied: zope.interface&gt;=4.1.3 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (5.4.0)
-Requirement already satisfied: protego&gt;=0.1.15 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Scrapy) (0.2.1)
-Requirement already satisfied: cffi&gt;=1.12 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from cryptography&gt;=2.0-&gt;Scrapy) (1.15.0)
-Requirement already satisfied: pycparser in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=2.0-&gt;Scrapy) (2.21)
-Requirement already satisfied: jmespath&gt;=0.9.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from itemloaders&gt;=1.0.1-&gt;Scrapy) (0.10.0)
-Requirement already satisfied: six&gt;=1.6.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from parsel&gt;=1.5.0-&gt;Scrapy) (1.16.0)
-Requirement already satisfied: pyasn1-modules in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from service-identity&gt;=16.0.0-&gt;Scrapy) (0.2.8)
-Requirement already satisfied: attrs&gt;=19.1.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from service-identity&gt;=16.0.0-&gt;Scrapy) (21.4.0)
-Requirement already satisfied: pyasn1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from service-identity&gt;=16.0.0-&gt;Scrapy) (0.4.8)
-Requirement already satisfied: constantly&gt;=15.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Twisted&gt;=17.9.0-&gt;Scrapy) (15.1.0)
-Requirement already satisfied: twisted-iocpsupport&lt;2,&gt;=1.0.2 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Twisted&gt;=17.9.0-&gt;Scrapy) (1.0.2)
-Requirement already satisfied: typing-extensions&gt;=3.6.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Twisted&gt;=17.9.0-&gt;Scrapy) (4.1.1)
-Requirement already satisfied: incremental&gt;=21.3.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Twisted&gt;=17.9.0-&gt;Scrapy) (21.3.0)
-Requirement already satisfied: hyperlink&gt;=17.1.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Twisted&gt;=17.9.0-&gt;Scrapy) (21.0.0)
-Requirement already satisfied: Automat&gt;=0.8.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from Twisted&gt;=17.9.0-&gt;Scrapy) (20.2.0)
-Requirement already satisfied: idna&gt;=2.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from hyperlink&gt;=17.1.1-&gt;Twisted&gt;=17.9.0-&gt;Scrapy) (3.3)
-Requirement already satisfied: requests&gt;=2.1.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from tldextract-&gt;Scrapy) (2.27.1)
-Requirement already satisfied: requests-file&gt;=1.4 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from tldextract-&gt;Scrapy) (1.5.1)
-Requirement already satisfied: filelock&gt;=3.0.8 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from tldextract-&gt;Scrapy) (3.6.0)
-Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;Scrapy) (2.0.12)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;Scrapy) (1.26.8)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests&gt;=2.1.0-&gt;tldextract-&gt;Scrapy) (2021.10.8)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 21.2.4; however, version 22.1.2 is available.
-You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip&#39; command.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install Scrapy
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pandas
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (1.4.2)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (2022.1)
-Requirement already satisfied: numpy&gt;=1.21.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from pandas) (1.22.4)
-Requirement already satisfied: six&gt;=1.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas) (1.16.0)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 21.2.4; however, version 22.1.2 is available.
-You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip&#39; command.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install pandas
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install requests
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (2.27.1)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests) (2021.10.8)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests) (1.26.8)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests) (3.3)
-Requirement already satisfied: charset-normalizer~=2.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from requests) (2.0.12)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 21.2.4; however, version 22.1.2 is available.
-You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip&#39; command.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install requests
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nltk
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (3.7)
-Requirement already satisfied: click in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (8.1.3)
-Requirement already satisfied: joblib in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (1.1.0)
-Requirement already satisfied: regex&gt;=2021.8.3 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (2022.6.2)
-Requirement already satisfied: tqdm in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from nltk) (4.64.0)
-Requirement already satisfied: colorama in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from click-&gt;nltk) (0.4.4)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 21.2.4; however, version 22.1.2 is available.
-You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip&#39; command.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install nltk
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install scikit-learn
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (1.1.1)
-Requirement already satisfied: scipy&gt;=1.3.2 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (1.8.1)
-Requirement already satisfied: joblib&gt;=1.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (1.1.0)
-Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (3.1.0)
-Requirement already satisfied: numpy&gt;=1.17.3 in c:\users\rizki-pc\appdata\local\programs\python\python310\lib\site-packages (from scikit-learn) (1.22.4)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: You are using pip version 21.2.4; however, version 22.1.2 is available.
-You should consider upgrading via the &#39;C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip&#39; command.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install scikit-learn
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install matplotlib
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib
-  Downloading matplotlib-3.5.2-cp310-cp310-win_amd64.whl (7.2 MB)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install matplotlib
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install seaborn
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: seaborn in c:\programdata\anaconda3\lib\site-packages (0.11.1)
-Requirement already satisfied: scipy&gt;=1.0 in c:\programdata\anaconda3\lib\site-packages (from seaborn) (1.6.2)
-Requirement already satisfied: numpy&gt;=1.15 in c:\programdata\anaconda3\lib\site-packages (from seaborn) (1.20.1)
-Requirement already satisfied: matplotlib&gt;=2.2 in c:\programdata\anaconda3\lib\site-packages (from seaborn) (3.3.4)
-Requirement already satisfied: pandas&gt;=0.23 in c:\programdata\anaconda3\lib\site-packages (from seaborn) (1.2.4)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in c:\programdata\anaconda3\lib\site-packages (from matplotlib&gt;=2.2-&gt;seaborn) (2.4.7)
-Requirement already satisfied: cycler&gt;=0.10 in c:\programdata\anaconda3\lib\site-packages (from matplotlib&gt;=2.2-&gt;seaborn) (0.10.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in c:\programdata\anaconda3\lib\site-packages (from matplotlib&gt;=2.2-&gt;seaborn) (8.2.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\programdata\anaconda3\lib\site-packages (from matplotlib&gt;=2.2-&gt;seaborn) (1.3.1)
-Requirement already satisfied: python-dateutil&gt;=2.1 in c:\programdata\anaconda3\lib\site-packages (from matplotlib&gt;=2.2-&gt;seaborn) (2.8.1)
-Requirement already satisfied: six in c:\programdata\anaconda3\lib\site-packages (from cycler&gt;=0.10-&gt;matplotlib&gt;=2.2-&gt;seaborn) (1.15.0)
-Requirement already satisfied: pytz&gt;=2017.3 in c:\programdata\anaconda3\lib\site-packages (from pandas&gt;=0.23-&gt;seaborn) (2021.1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install seaborn
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install wordcloud
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wordcloud in c:\programdata\anaconda3\lib\site-packages (1.8.1)
-Requirement already satisfied: matplotlib in c:\programdata\anaconda3\lib\site-packages (from wordcloud) (3.3.4)
-Requirement already satisfied: numpy&gt;=1.6.1 in c:\programdata\anaconda3\lib\site-packages (from wordcloud) (1.20.1)
-Requirement already satisfied: pillow in c:\programdata\anaconda3\lib\site-packages (from wordcloud) (8.2.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\programdata\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (1.3.1)
-Requirement already satisfied: python-dateutil&gt;=2.1 in c:\programdata\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (2.8.1)
-Requirement already satisfied: cycler&gt;=0.10 in c:\programdata\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (0.10.0)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.3 in c:\programdata\anaconda3\lib\site-packages (from matplotlib-&gt;wordcloud) (2.4.7)
-Requirement already satisfied: six in c:\programdata\anaconda3\lib\site-packages (from cycler&gt;=0.10-&gt;matplotlib-&gt;wordcloud) (1.15.0)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install wordcloud
 </pre></div>
 </div>
 </div>
@@ -2684,6 +2550,12 @@ t f i d f(t, d, D)=t f(t, d), i d f(t, D)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
 </pre></div>
 </div>
 </div>
@@ -5701,6 +5573,10 @@ t f i d f(t, d, D)=t f(t, d), i d f(t, D)
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Rizki-PC\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7228,17 +7104,31 @@ yi : Objek 2 (Centroid)</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 1 clusters
 Fit 3 clusters
-Fit 5 clusters
-Fit 7 clusters
-Fit 9 clusters
-Fit 11 clusters
-Fit 13 clusters
-Fit 15 clusters
-Fit 17 clusters
-Fit 19 clusters
 </pre></div>
 </div>
-<img alt="_images/190411100151_Rizki Ashuri Pratama_Text_Clustering_54_1.png" src="_images/190411100151_Rizki Ashuri Pratama_Text_Clustering_54_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 5 clusters
+Fit 7 clusters
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 9 clusters
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 11 clusters
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 13 clusters
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 15 clusters
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 17 clusters
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fit 19 clusters
+</pre></div>
+</div>
+<img alt="_images/190411100151_Rizki Ashuri Pratama_Text_Clustering_54_8.png" src="_images/190411100151_Rizki Ashuri Pratama_Text_Clustering_54_8.png" />
 </div>
 </div>
 </section>
@@ -7275,14 +7165,27 @@ Fit 19 clusters
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ProgramData\Anaconda3\lib\site-packages\sklearn\cluster\_kmeans.py:792: FutureWarning: &#39;n_jobs&#39; was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
-  warnings.warn(&quot;&#39;n_jobs&#39; was deprecated in version 0.23 and will be&quot;
-C:\ProgramData\Anaconda3\lib\site-packages\sklearn\cluster\_kmeans.py:881: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=1.
-  warnings.warn(
-C:\ProgramData\Anaconda3\lib\site-packages\sklearn\cluster\_kmeans.py:792: FutureWarning: &#39;n_jobs&#39; was deprecated in version 0.23 and will be removed in 1.0 (renaming of 0.25).
-  warnings.warn(&quot;&#39;n_jobs&#39; was deprecated in version 0.23 and will be&quot;
-C:\ProgramData\Anaconda3\lib\site-packages\sklearn\cluster\_kmeans.py:881: UserWarning: KMeans is known to have a memory leak on Windows with MKL, when there are less chunks than available threads. You can avoid it by setting the environment variable OMP_NUM_THREADS=1.
-  warnings.warn(
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [29],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Running Kmeans</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">kmeans_results</span> <span class="o">=</span> <span class="n">run_KMeans</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">final_df</span><span class="p">)</span>
+
+<span class="nn">Input In [28],</span> in <span class="ni">run_KMeans</span><span class="nt">(max_k, data)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">kmeans_results</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="p">,</span> <span class="n">max_k</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">kmeans</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">k</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                            <span class="p">,</span> <span class="n">init</span> <span class="o">=</span> <span class="s1">&#39;k-means++&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                            <span class="p">,</span> <span class="n">n_init</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>                            <span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>                            <span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>                            <span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                            <span class="p">,</span> <span class="n">algorithm</span> <span class="o">=</span> <span class="s1">&#39;full&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">kmeans_results</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">{</span><span class="n">k</span> <span class="p">:</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)}</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">return</span> <span class="n">kmeans_results</span>
+
+<span class="ne">TypeError</span>: KMeans.__init__() got an unexpected keyword argument &#39;n_jobs&#39;
 </pre></div>
 </div>
 </div>
@@ -8071,13 +7974,6 @@ C:\ProgramData\Anaconda3\lib\site-packages\sklearn\cluster\_kmeans.py:881: UserW
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Welcome to your Jupyter Book</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="190411100151_Rizki%20Ashuri%20Pratama_Topic_Modelling_LSA_Teknik_Informatika.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TOPIC MODELLING LSA PYTHON PTA TEKNIK INFORMATIKA</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
